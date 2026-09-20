@@ -1,0 +1,4 @@
+[test]
+# Bun's runner picks up every *.test.ts / *.spec.ts by default; the Playwright
+# E2E specs in e2e/ run through `bun run test:e2e` (Playwright) instead.
+root = "./__tests__"

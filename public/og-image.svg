@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="ogTitle ogDesc">
+  <title id="ogTitle">NexusPlacement — Campus placements, systematized</title>
+  <desc id="ogDesc">NexusPlacement Portal social card: 85% students placed, ₹44 LPA highest package, 412 offers released.</desc>
+
+  <defs>
+    <!-- Outfit is the portal's display face; declared here so the SVG renders
+         identically when opened standalone in a browser. The rasteriser
+         (scripts/generate-og-image.mjs) injects the same family locally. -->
+    <style>
+      @font-face {
+        font-family: 'Outfit';
+        font-style: normal;
+        font-weight: 100 900;
+        src: url(https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJuktqQ4E.woff2) format('woff2');
+      }
+      /* No Google Fonts subset ships the rupee sign, so this is a one-glyph
+         fallback handled by the browser's per-character font resolution. */
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 800;
+        unicode-range: U+20B9;
+        src: url(https://fonts.gstatic.com/l/font?kit=UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuDyYMZ1zjlcCIg&amp;skey=c491285d6722e4fa&amp;v=v20) format('woff2');
+      }
+    </style>
+
+    <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a855f7" />
+      <stop offset="1" stop-color="#4f46e5" />
+    </linearGradient>
+
+    <linearGradient id="headlineGrad" x1="0" y1="0" x2="1" y2="0.4">
+      <stop offset="0" stop-color="#f3e8ff" />
+      <stop offset="0.32" stop-color="#c084fc" />
+      <stop offset="0.68" stop-color="#8b5cf6" />
+      <stop offset="1" stop-color="#6366f1" />
+    </linearGradient>
+
+    <linearGradient id="headlineSoft" x1="0" y1="0" x2="1" y2="0.4">
+      <stop offset="0" stop-color="#e9d5ff" />
+      <stop offset="0.5" stop-color="#a78bfa" />
+      <stop offset="1" stop-color="#6366f1" />
+    </linearGradient>
+
+    <linearGradient id="topLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fbbf24" stop-opacity="0" />
+      <stop offset="0.45" stop-color="#fbbf24" stop-opacity="0.85" />
+      <stop offset="0.75" stop-color="#c084fc" stop-opacity="0.7" />
+      <stop offset="1" stop-color="#a855f7" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="divider" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a855f7" stop-opacity="0.55" />
+      <stop offset="0.55" stop-color="#6366f1" stop-opacity="0.22" />
+      <stop offset="1" stop-color="#6366f1" stop-opacity="0" />
+    </linearGradient>
+
+    <radialGradient id="glowPurple" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#7c3aed" stop-opacity="0.55" />
+      <stop offset="0.65" stop-color="#6d28d9" stop-opacity="0.16" />
+      <stop offset="1" stop-color="#6d28d9" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="glowAmber" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f59e0b" stop-opacity="0.26" />
+      <stop offset="1" stop-color="#f59e0b" stop-opacity="0" />
+    </radialGradient>
+
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#a855f7" stroke-opacity="0.07" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <!-- Canvas: deep obsidian, faint grid, ambient glows, gold scanline -->
+  <rect width="1200" height="630" fill="#030307" />
+  <rect width="1200" height="630" fill="url(#grid)" />
+  <ellipse cx="1030" cy="110" rx="440" ry="380" fill="url(#glowPurple)" />
+  <ellipse cx="110" cy="615" rx="420" ry="300" fill="url(#glowAmber)" />
+  <rect width="1200" height="3" fill="url(#topLine)" />
+
+  <g font-family="Outfit, Inter, 'Segoe UI', system-ui, sans-serif">
+    <!-- Brand row -->
+    <rect x="80" y="72" width="46" height="46" rx="13" fill="url(#brandGrad)" />
+    <text x="103" y="105" text-anchor="middle" font-size="27" font-weight="800" fill="#ffffff">N</text>
+    <text x="142" y="105" font-size="23" font-weight="800" letter-spacing="4.6" fill="#e2e8f0">NEXUSPLACEMENT</text>
+
+    <rect x="880" y="77" width="240" height="38" rx="19" fill="#fbbf24" fill-opacity="0.08" stroke="#fbbf24" stroke-opacity="0.32" stroke-width="1" />
+    <text x="1000" y="101" text-anchor="middle" font-size="11.5" font-weight="700" letter-spacing="1.6" fill="#fbbf24">NAAC · NBA AUDIT READY</text>
+
+    <!-- Headline: purple gradient -->
+    <text x="80" y="252" font-size="76" font-weight="800" letter-spacing="-1.2" fill="url(#headlineGrad)">NexusPlacement —</text>
+    <text x="80" y="322" font-size="52" font-weight="600" letter-spacing="-0.6" fill="url(#headlineSoft)">Campus placements, systematized</text>
+    <text x="80" y="372" font-size="20" font-weight="400" fill="#94a3b8">Automating placement drives, student eligibility, resume screening and interview workflows.</text>
+
+    <!-- Gold KPI callouts -->
+    <rect x="80" y="414" width="320" height="92" rx="18" fill="#fbbf24" fill-opacity="0.09" stroke="#fbbf24" stroke-opacity="0.3" stroke-width="1.5" />
+    <text x="108" y="466" font-size="44" font-weight="800" letter-spacing="-0.8" fill="#fbbf24">85%</text>
+    <text x="108" y="492" font-size="12" font-weight="600" letter-spacing="2.2" fill="#fbbf24" fill-opacity="0.75">STUDENTS PLACED</text>
+
+    <rect x="440" y="414" width="320" height="92" rx="18" fill="#fbbf24" fill-opacity="0.09" stroke="#fbbf24" stroke-opacity="0.3" stroke-width="1.5" />
+    <text x="468" y="466" font-size="40" font-weight="800" letter-spacing="-0.6" fill="#fbbf24">₹44 LPA</text>
+    <text x="468" y="492" font-size="12" font-weight="600" letter-spacing="2.2" fill="#fbbf24" fill-opacity="0.75">HIGHEST PACKAGE</text>
+
+    <rect x="800" y="414" width="320" height="92" rx="18" fill="#a855f7" fill-opacity="0.09" stroke="#a855f7" stroke-opacity="0.3" stroke-width="1.5" />
+    <text x="828" y="466" font-size="44" font-weight="800" letter-spacing="-0.8" fill="#c4b5fd">412</text>
+    <text x="828" y="492" font-size="12" font-weight="600" letter-spacing="2.2" fill="#c4b5fd" fill-opacity="0.8">OFFERS RELEASED</text>
+
+    <!-- Footer strip -->
+    <rect x="80" y="546" width="1040" height="1" fill="url(#divider)" />
+    <text x="80" y="584" font-size="15" font-weight="500" letter-spacing="0.8" fill="#64748b">dull-dingos-fetch.freebuff.dev</text>
+    <text x="1120" y="584" text-anchor="end" font-size="12.5" font-weight="700" letter-spacing="2.4" fill="#64748b">STUDENT · TPO · RECRUITER</text>
+  </g>
+</svg>

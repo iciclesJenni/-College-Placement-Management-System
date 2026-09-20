@@ -1,0 +1,64 @@
+# ─── Placement Portal — fully offline local demonstration stack ──────────────
+# Usage:  docker compose up -d   (or just run ./run-demo.sh)
+#
+#   postgres  — PostgreSQL 16 with health check + persistent volume
+#   app       — Next.js portal, pre-built in the image, migrated + seeded
+#               automatically on boot. No internet needed after the first
+#               image build/pull.
+#
+# Everything communicates over an isolated internal network; only the ports
+# below are exposed to the host.
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: placement-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: placement
+      POSTGRES_PASSWORD: placement_demo
+      POSTGRES_DB: placement_db
+    ports:
+      - "5432:5432" # exposed only for prisma studio / local debugging
+    volumes:
+      # Survives container restarts — the demo dataset persists across sessions
+      - placement_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U placement -d placement_db"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 5s
+    networks:
+      - placement-net
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: placement-app
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy # migrations never race the database
+    environment:
+      # Inside the compose network the host is the service name "postgres"
+      DATABASE_URL: "postgresql://placement:placement_demo@postgres:5432/placement_db?schema=public&connection_limit=10"
+      DIRECT_URL: "postgresql://placement:placement_demo@postgres:5432/placement_db?schema=public"
+      NEXTAUTH_URL: "http://localhost:3000"
+      # Demo-only secret — fine for an offline sandbox, never in production
+      NEXTAUTH_SECRET: "offline-demo-secret-not-for-production-use"
+      NODE_ENV: "production"
+      # Set to "false" to skip re-seeding on subsequent boots
+      SEED_ON_BOOT: "true"
+    ports:
+      - "3000:3000"
+    networks:
+      - placement-net
+
+volumes:
+  placement_pgdata:
+
+networks:
+  placement-net:
+    driver: bridge

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Placement Portal — public sitemap.
+  Generated from src/app/sitemap.ts (renderSitemapXml()); keep both in sync.
+  Authenticated namespaces (/student/*, /tpo/*, /company/*, /messages,
+  /dashboard) and /api/* are intentionally excluded and blocked in robots.txt.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://dull-dingos-fetch.freebuff.dev/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://dull-dingos-fetch.freebuff.dev/auth</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dull-dingos-fetch.freebuff.dev/terms</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dull-dingos-fetch.freebuff.dev/privacy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://dull-dingos-fetch.freebuff.dev/faq</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>

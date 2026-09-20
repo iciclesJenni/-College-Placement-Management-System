@@ -1,0 +1,56 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Placement Portal — robots.txt
+#
+# Vite serves this file from /public at the site root, so it is available at
+# https://<your-domain>/robots.txt in every build.
+#
+# NOTE ON MIGRATION: this repo is a Vite + React SPA, so the Next.js App Router
+# metadata route (src/app/robots.ts) does not apply. If the project is migrated
+# to Next.js, re-create this exact output as:
+#
+#   export default function robots(): MetadataRoute.Robots {
+#     return {
+#       rules: [{ userAgent: "*", allow: [...], disallow: [...] }],
+#       sitemap: `${SITE_URL}/sitemap.xml`,
+#     };
+#   }
+#
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ─── All crawlers ────────────────────────────────────────────────────────────
+User-agent: *
+
+# Public surfaces — indexable. Exactly mirrors the entries in sitemap.xml.
+Allow: /$
+Allow: /auth
+Allow: /terms
+Allow: /privacy
+Allow: /faq
+
+# Private, authenticated workspaces — never indexable. These namespaces are
+# role-scoped dashboards (student, TPO, recruiter) that require a session
+# cookie; crawling them wastes budget, leaks nothing useful, and can surface
+# sign-in redirects in search results.
+Disallow: /student/
+Disallow: /tpo/
+Disallow: /company/
+Disallow: /messages
+Disallow: /dashboard
+
+# API / data endpoints — never crawled.
+Disallow: /api/
+
+# Build and asset internals that should not appear in results.
+Disallow: /assets/
+
+# ─── Explicit allow for crawlers that read social/SEO preview assets ─────────
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+# ─── Sitemap ─────────────────────────────────────────────────────────────────
+# Absolute URL of the generated sitemap (public/sitemap.xml).
+# Update the host here when a custom domain is attached to the deployment.
+Sitemap: https://dull-dingos-fetch.freebuff.dev/sitemap.xml
